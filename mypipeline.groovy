@@ -3,14 +3,20 @@ pipeline {
         label 'node1'
     }
     stages {
-        stage('Build') { 
+        stage('pull') { 
+            steps {
+                git 'https://github.com/SurajBele/studentapp.ui.git'
+                echo "pull is successful"
+            }
+        }
+        stage('building') { 
             steps {
                 echo "building is successful"
             }
         }
-        stage('Test') { 
+        stage('testing') { 
             steps {
-                echo "testinig is successful"
+                echo "testing is successful "
             }
         }
         stage('Deploy') { 
