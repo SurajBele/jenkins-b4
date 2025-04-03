@@ -12,10 +12,9 @@ pipeline {
         stage('building') { 
             steps {
                 tool 'openjdk11'
-                script {
+                
                 sh 'mvn clean package'
                 echo "building is successful"
-                }
             }
         }
         stage('testing') { 
