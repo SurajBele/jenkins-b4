@@ -11,13 +11,14 @@ pipeline {
         }
         stage('building') { 
             steps {
+                tool('jdk11')
                 sh 'mvn clean package'
                 echo "building is successful"
             }
         }
         stage('testing') { 
             steps {
-                tool('jdk11')
+                
                 withSonarQubeEnv(installationName: 'sonar-server', credentialsId: 'sonar-token') {
                  sh 'mvn clean package sonar:sonar -Dsonar.projectKey=myproject'
                 }
