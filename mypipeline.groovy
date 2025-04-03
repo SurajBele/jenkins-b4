@@ -17,7 +17,7 @@ pipeline {
         }
         stage('testing') { 
             steps {
-                echo "testing is successful " #sqp_8c904ebfe94051010a5405dc307e33939d2b53c7
+                echo "testing is successful "
             }
         }
         stage('Deploy') { 
