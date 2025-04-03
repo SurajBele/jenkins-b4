@@ -2,9 +2,6 @@ pipeline {
     agent  {
         label 'node1'
     }
-    tools {
-        jdk 'openjdk11'            
-    }
     environment {
         JAVA_11_HOME = "/usr/lib/jvm/java-11-openjdk-amd64"
         JAVA_17_HOME = "/usr/lib/jvm/java-17-openjdk-amd64"
