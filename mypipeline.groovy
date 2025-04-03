@@ -32,7 +32,7 @@ pipeline {
             steps {
                 script {
                     // Switch to Java 17 for SonarQube
-                    env.JAVA_HOME = tool 'openjdk17'
+                    env.JAVA_HOME = env.JAVA_17_HOME
                     env.PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
                 }
                 sh 'java -version'  // Verify Java 17 is active
