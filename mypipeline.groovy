@@ -26,7 +26,6 @@ pipeline {
                     env.PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
                 }
                 sh 'java -version'  // Verify Java 17 is active
-                
                 withSonarQubeEnv(installationName: 'sonar-server', credentialsId: 'sonar-token') {
                  sh 'mvn clean package sonar:sonar -Dsonar.projectKey=myproject'
                 }
