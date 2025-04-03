@@ -11,7 +11,7 @@ pipeline {
         }
         stage('building') { 
             tools {
-                    jdk 'openjdk11'            
+                jdk 'openjdk11'            
             }
             steps {
                 sh 'mvn clean package'
