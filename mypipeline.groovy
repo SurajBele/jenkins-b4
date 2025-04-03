@@ -17,10 +17,8 @@ pipeline {
         }
         stage('testing') { 
             steps {
-                withSonarQubeEnv(credentialsId: 'sonar-token') {
-                 sh 'mvn clean package sonar:sonar \
-                        -Dsonar.projectKey=myproject \
-                        -Dsonar.projectName='myproject''
+                withSonarQubeEnv(installationName: 'sonar-server', credentialsId: 'sonar-token') {
+                 sh 'mvn clean package sonar:sonar -Dsonar.projectKey=myproject'
                 }
                 echo "testing is successful "
             }
