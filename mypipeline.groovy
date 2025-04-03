@@ -11,7 +11,7 @@ pipeline {
         }
         stage('building') { 
             steps {
-                tool('jdk11')
+                tool('/usr/lib/jvm/java-11-openjdk-amd64/bin/java')
                 sh 'mvn clean package'
                 echo "building is successful"
             }
