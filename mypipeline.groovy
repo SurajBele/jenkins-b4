@@ -19,6 +19,11 @@ pipeline {
         stage('building') { 
           
             steps {
+                script {
+                    env.JAVA_HOME = env.JAVA_11_HOME
+                    env.PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
+                }
+                sh 'java -version'  // Verify Java 11 is active
                 sh 'mvn clean package'
                 echo "building is successful"
             }
