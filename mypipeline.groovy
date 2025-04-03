@@ -27,9 +27,7 @@ pipeline {
                 }
                 sh 'java -version'  // Verify Java 17 is active
                 withSonarQubeEnv(installationName: 'sonar-server', credentialsId: 'sonar-token') {
-                 sh 'mvn tools {
-        jdk 'openjdk11'  // Default JDK for build
-    } sonar:sonar -Dsonar.projectKey=myproject'
+                 sh 'mvn varify sonar:sonar -Dsonar.projectKey=myproject'
                 }
                 echo "testing is successful "
             }
