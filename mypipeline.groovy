@@ -3,8 +3,8 @@ pipeline {
         label 'node1'
     }
     tools {
-                jdk 'openjdk11'            
-            }
+        jdk 'openjdk11'            
+     }
     stages {
         stage('pull') { 
             steps {
