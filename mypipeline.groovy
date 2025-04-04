@@ -42,7 +42,10 @@ pipeline {
             }
         }
         stage('Qualitygate') {
-            waitForQualityGate abortPipeline: false, credentialsId: 'sonar-token'
+            steps{
+               waitForQualityGate abortPipeline: false, credentialsId: 'sonar-token'
+            }
+            
         }
         stage('Deploy') { 
             steps {
