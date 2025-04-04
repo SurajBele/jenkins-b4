@@ -41,7 +41,7 @@ pipeline {
                 echo "testing is successful "
             }
         }
-        stage(Qualitygate){
+        stage('Qualitygate') {
             waitForQualityGate abortPipeline: false, credentialsId: 'sonar-token'
         }
         stage('Deploy') { 
