@@ -2,6 +2,8 @@ pipeline {
     agent  {
         label 'node1'
     }
+    // If you are having multiple java versions, and need to define different version for
+    // different stages so set env as below.
     environment {
         JAVA_11_HOME = "/usr/lib/jvm/java-11-openjdk-amd64"
         JAVA_17_HOME = "/usr/lib/jvm/java-17-openjdk-amd64"
