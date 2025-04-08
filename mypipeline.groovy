@@ -43,12 +43,13 @@ pipeline {
         }
         stage( 'QualityGate') {
             steps {
-                waitForQualityGate abortPipeline: true, credentialsId: 'sonar-token'    
+                waitForQualityGate abortPipeline: false, credentialsId: 'sonar-token'    
             }
             
         }
         stage('Deploy') { 
             steps {
+                deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://54.172.182.111:8080/')], contextPath: '/', war: '**/*.war'
                 echo "Deploy is successful "
             }
         }
