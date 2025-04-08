@@ -15,7 +15,7 @@ pipeline {
                 echo "pull is successful"
             }
         }
-        /*
+        
         stage('building') { 
           
             steps {
@@ -28,8 +28,8 @@ pipeline {
                 echo "building is successful"
             }
         }
-        */
-        stage('building  and testing') { 
+        
+        stage('testing') { 
             steps {
                 script {
                     // Switch to Java 17 for SonarQube
@@ -38,7 +38,7 @@ pipeline {
                 }
                 sh 'java -version'  // Verify Java 17 is active
                 withSonarQubeEnv(installationName: 'sonar-server', credentialsId: 'sonar-token') {
-                 sh 'mvn clean package sonar:sonar -Dsonar.projectKey=myproject'
+                 sh 'mvn sonar:sonar -Dsonar.projectKey=myproject'
                 }
                 echo "testing is successful "
             }
